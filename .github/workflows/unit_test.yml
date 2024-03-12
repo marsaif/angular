@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Use Node.js latest version
+      with:
+        node-version: latest
+    - name: Install dependencies
+      run: npm install
+    - name: Test
+      run: npm test 
+    - name: Build
+      run: npm run build -- --prod
